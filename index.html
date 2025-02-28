@@ -11,8 +11,16 @@
                 <h2>To-Do List <img src="images/icon.png"></h2>
                 <div class="row">
                     <input type="text" id="input-box" placeholder="Add your text">
-                    <button onclick="addTask()">Add</button>
                 </div>
+
+                <div class="row">
+                    <input class="time-input" type="number" id="timer-box" placeholder="Minutes">
+                </div>
+
+                <div>
+                    <button class="add-button" onclick="addTask()">Add</button>
+                </div>
+
                 <ul id="list-container">
                     <!-- <li class="checked">Task 1</li>
                     <li>Task 2</li>
