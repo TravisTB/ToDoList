@@ -68,7 +68,7 @@ ul li.editing {
     background: linear-gradient(135deg, #1e293b, #0f172a, #4e9caf);
     padding: 10px;
     background-size: 200% 200%;
-    animation: gradient 5s ease infinite;
+    animation: gradient 20s ease infinite;
 }
 .todo-app {
     width: 100%;
