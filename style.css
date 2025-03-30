@@ -4,11 +4,78 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+ul li.deleting {
+    animation: slideOut 0.3s ease-in-out forwards;
+}
+
+button:hover {
+    background: #ff3b2f;
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+ul li.editing {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.container {
+    background: linear-gradient(135deg, #153677, #4e085f, #ff5945);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+}
+
 .container {
     width: 100%;
     min-height: 100vh;
     background: linear-gradient(135deg, #153677, #4e085f);
     padding: 10px;
+    background: linear-gradient(135deg, #153677, #4e085f, #ff5945);
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
 }
 .todo-app {
     width: 100%;
@@ -71,6 +138,7 @@ ul li {
     user-select: none;
     cursor: pointer;
     position: relative;
+    animation: fadeIn 0.3s ease-in-out;
 }
 ul li::before {
     content:'';
@@ -87,6 +155,7 @@ ul li::before {
 ul li.checked {
     color: #555;
     text-decoration: line-through;
+    animation: bounce 0.3s ease-in-out;
 }
 ul li.checked::before {
     background-image: url(images/checked.png);

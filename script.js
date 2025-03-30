@@ -36,8 +36,12 @@ listContainer.addEventListener('click', function(e) {
         e.target.classList.toggle('checked');
         saveData();
     } else if (e.target.tagName === 'SPAN' && e.target.className !== 'timer') {
-        e.target.parentElement.remove();
-        saveData();
+        const li = e.target.parentElement;
+        li.classList.add('deleting'); // Add the 'deleting' class for the animation
+        setTimeout(() => {
+            li.remove(); // Remove the task after the animation
+            saveData();
+        }, 300); // Match the duration of the CSS animation
     }
 }, false);
 
