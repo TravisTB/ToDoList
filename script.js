@@ -95,6 +95,15 @@ document.getElementById('timer-box').addEventListener('keypress', function (even
     }
 });
 
+document.getElementById('clear-completed').addEventListener('click', function() {
+    const completedTasks = listContainer.querySelectorAll('.checked');
+    completedTasks.forEach(task => {
+        task.classList.add('deleting'); // Add animation
+        setTimeout(() => task.remove(), 300); // Match animation duration
+    });
+    saveData();
+});
+
 listContainer.addEventListener('dblclick', function (e) {
     if (e.target.tagName === 'LI' && !e.target.classList.contains('editing')) {
         const li = e.target;

@@ -184,9 +184,21 @@ ul li .timer {
     width: 100px;
 }
 
+.button-row {
+    display: flex;
+    
+    margin-top: 20px; /* Add some spacing from the input fields */
+}
+
 .add-button {
     padding: 20px 30px;
-    margin-left: 200px;
+    margin-left: 100px;
+}
+
+#clear-completed {
+    margin-left: 50px;
+    padding: 10px 20px;
+    
 }
 
 #list-container {
@@ -217,4 +229,19 @@ ul li.editing span,
 ul li.editing .timer {
     pointer-events: none;
     opacity: 0.5;
+}
+
+#clear-completed {
+    background: #007bff; /* Bright blue background */
+    color: #fff; /* White text */
+    padding: 10px 20px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#clear-completed:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
