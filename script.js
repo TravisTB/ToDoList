@@ -77,4 +77,16 @@ function updateTimers() {
     });
 }
 
+document.getElementById('input-box').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+});
+
+document.getElementById('timer-box').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        addTask();
+    }
+});
+
 showTask();
