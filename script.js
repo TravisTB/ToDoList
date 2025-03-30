@@ -37,11 +37,13 @@ listContainer.addEventListener('click', function(e) {
         saveData();
     } else if (e.target.tagName === 'SPAN' && e.target.className !== 'timer') {
         const li = e.target.parentElement;
-        li.classList.add('deleting'); // Add the 'deleting' class for the animation
-        setTimeout(() => {
-            li.remove(); // Remove the task after the animation
-            saveData();
-        }, 300); // Match the duration of the CSS animation
+        if (confirm('Are you sure you want to delete this task?')) {
+            li.classList.add('deleting'); // Add the 'deleting' class for the animation
+            setTimeout(() => {
+                li.remove(); // Remove the task after the animation
+                saveData();
+            }, 300); // Match the duration of the CSS animation
+        }
     }
 }, false);
 
