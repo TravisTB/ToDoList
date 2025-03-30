@@ -123,3 +123,12 @@ ul li .timer {
 #list-container {
     margin-top: 50px;
 }
+
+.edit-input {
+    width: 80%;
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

@@ -89,4 +89,43 @@ document.getElementById('timer-box').addEventListener('keypress', function (even
     }
 });
 
+listContainer.addEventListener('dblclick', function (e) {
+    if (e.target.tagName === 'LI' && !e.target.classList.contains('editing')) {
+        const li = e.target;
+        const currentText = li.firstChild.textContent.trim(); // Get the task text
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = currentText;
+        input.className = 'edit-input';
+
+        li.classList.add('editing');
+        li.firstChild.replaceWith(input);
+
+        input.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                saveEdit(li, input);
+            }
+        });
+
+        input.addEventListener('blur', function () {
+            saveEdit(li, input);
+        });
+
+        input.focus();
+    }
+});
+
+function saveEdit(li, input) {
+    const updatedText = input.value.trim();
+    if (updatedText !== '') {
+        const textNode = document.createTextNode(updatedText);
+        input.replaceWith(textNode);
+        li.classList.remove('editing');
+        saveData();
+    } else {
+        alert('Task cannot be empty.');
+        input.focus();
+    }
+}
+
 showTask();
