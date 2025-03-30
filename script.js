@@ -31,10 +31,18 @@ function addTask() {
     timerBox.value = '';
 }
 
+function updateProgress() {
+    const tasks = listContainer.querySelectorAll('li');
+    const completedTasks = listContainer.querySelectorAll('.checked');
+    const progress = tasks.length ? (completedTasks.length / tasks.length) * 100 : 0;
+    document.getElementById('progress-bar').style.width = `${progress}%`;
+}
+
 listContainer.addEventListener('click', function(e) {
     if (e.target.tagName === 'LI') {
         e.target.classList.toggle('checked');
         saveData();
+        updateProgress();
     } else if (e.target.tagName === 'SPAN' && e.target.className !== 'timer') {
         const li = e.target.parentElement;
         if (confirm('Are you sure you want to delete this task?')) {
@@ -143,4 +151,6 @@ function saveEdit(li, input) {
     }
 }
 
+
 showTask();
+updateProgress();
